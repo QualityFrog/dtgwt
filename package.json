@@ -1,0 +1,46 @@
+{
+  "name": "dtgwt",
+  "version": "0.0.1",
+  "description": "Simple Decision Table to Given , When and Then",
+  "main": "src/dtgwt.js",
+  "bin": "bin/index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "npx jest",
+    "webpack": "npx webpack node_modules/markdown/lib/index.js --output-library-target window --output-library markdown -o src/markdown.min.js",
+    "docs": "npx jsdoc2md -c jsdoc.conf.json src/dtgwt.js  > DOCS.md"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/freddiefujiwara/dtgwt.git"
+  },
+  "keywords": [
+    "testing-tools",
+    "testcase-generator",
+    "decision-trees",
+    "decisiontable",
+    "decision-tree"
+  ],
+  "author": {
+    "name": "Fumikazu Fujiwara",
+    "email": "npm@ze.gs",
+    "url": "http://freddiefujiwara.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/freddiefujiwara/dtgwt/issues"
+  },
+  "homepage": "https://github.com/freddiefujiwara/dtgwt#readme",
+  "devDependencies": {
+    "jest": "^27.5.1",
+    "jsdoc-to-markdown": "^7.1.1",
+    "webpack": "^5.68.0",
+    "webpack-cli": "^4.9.2"
+  },
+  "dependencies": {
+    "markdown": "^0.5.0",
+    "minimist": "^1.2.5"
+  }
+}
