@@ -154,7 +154,7 @@ class Dtgwt {
         const then = t[0];
         thens.push(`${then}:${t[s]}`);
       }.bind(this));
-      console.log(`|${s}|Given ${givens.join(" and <br />")}|When ${whens.join(" and <br />")}|Then ${thens.join(" and <br />")}|`);
+      console.log(`|${s}|Given ${givens.join(" and ")}|When ${whens.join(" and ")}|Then ${thens.join(" and ")}|`);
     }
     return this;
   }
