@@ -9,7 +9,7 @@
   },
   "scripts": {
     "test": "npx jest",
-    "webpack": "npx webpack node_modules/markdown/lib/index.js --output-library-target window --output-library markdown -o src/markdown.min.js",
+    "build": "npx webpack node_modules/markdown/lib/index.js --output-library-target window --output-library markdown -o src/markdown.min.js",
     "docs": "npx jsdoc2md -c jsdoc.conf.json src/dtgwt.js  > DOCS.md"
   },
   "repository": {
