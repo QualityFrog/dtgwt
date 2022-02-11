@@ -49,6 +49,7 @@ $("#render").click(() => {
     $("#table").html(markdown.markdown.toHTML(inputscript, "Maruku"));
 
     output = new Array();
+    d.parse();
     d.print();
     $("#cases").html(markdown.markdown.toHTML(output.join("\n"), "Maruku"));
     console.log = log;
