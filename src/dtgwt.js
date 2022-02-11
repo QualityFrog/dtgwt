@@ -34,6 +34,7 @@ class Dtgwt {
    * initialize this.contents
    */
   initialize(){
+    this.contents = "";
     this.parsedContents = {
       "given": [],
       "when": [],
@@ -102,6 +103,59 @@ class Dtgwt {
     ["given","when"].forEach(function(type){
       this.parsedContents[type].pop();
     }.bind(this));
+    return this;
+  }
+  /**
+   * print table
+   * @returns {Dtgwt} this This object
+   * @desc
+   * print this.parsedContents
+   * to console
+   * @example
+   */
+  print(){
+    console.log(`|Scenario No|Test conditions|Step description|Step expected result|`);
+    console.log(`|---|---|---|---|`);
+    // ignore error patterns
+    if(this.parsedContents["given"].length === 0 || this.parsedContents["given"][0] < 2){
+      console.log(`|No "givens" are properly provided||||`);
+      return;
+    };
+    let error = false;
+    ["when","then"].forEach(function(type){
+      if(this.parsedContents[type].length === 0 ||
+        this.parsedContents[type][0].length !== this.parsedContents["given"][0].length){
+        console.log(`|No "${type}" are properly provided||||`);
+        error = true;
+      }
+    }.bind(this));
+    if(error){
+      return;
+    }
+
+    const numberOfScenarios = this.parsedContents["given"][0].length - 1;
+    for(let s = 1 ; s <= numberOfScenarios ; s++){
+      const givens = [];
+      this.parsedContents["given"].forEach(function(g,i){
+        const given = g[0];
+        if(g[s].match(/^y$/i)){
+          givens.push(`${given}`);
+        }
+      }.bind(this));
+      const whens = [];
+      this.parsedContents["when"].forEach(function(w,i){
+        const when = w[0];
+        if(w[s].match(/^y$/i)){
+          whens.push(`${when}`);
+        }
+      }.bind(this));
+      const thens = [];
+      this.parsedContents["then"].forEach(function(t,i){
+        const then = t[0];
+        thens.push(`${then}:${t[s]}`);
+      }.bind(this));
+      console.log(`|${s}|Given ${givens.join(" and <br />")}|When ${whens.join(" and <br />")}|Then ${thens.join(" and <br />")}|`);
+    }
     return this;
   }
 }

@@ -20,5 +20,5 @@ if (argv['_'].length < 1 || typeof argv['h'] !== 'undefined'){
 const fs = require('fs');
 const dtgwt = require('../src/dtgwt');
 const d = new dtgwt();
-d.setContents(require('fs').readFileSync(argv['_'][0],'utf8'))
-  .initialize();
+d.initialize()
+  .setContents(require('fs').readFileSync(argv['_'][0],'utf8'))
