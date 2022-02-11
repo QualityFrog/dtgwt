@@ -68,7 +68,7 @@ The input is also in markdown, which is really not very user-friendly (lol).
  
  You can find the [source code](https://github.com/freddiefujiwara/dtgwt) here
 The demo application is
-[here](https://freddiefujiwara.com/dtgwt/)
+[here](https://freddiefujiwara.com/dtgwt/#inputscript)
 
 I made this in about two hours in  mess.
 If you notice anything, please give me your pull request for anytime.
