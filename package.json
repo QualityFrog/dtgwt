@@ -9,7 +9,6 @@
   },
   "scripts": {
     "test": "npx jest",
-    "build": "npx webpack node_modules/markdown/lib/index.js --output-library-target window --output-library markdown -o src/markdown.min.js",
     "docs": "npx jsdoc2md -c jsdoc.conf.json src/dtgwt.js  > DOCS.md"
   },
   "repository": {
@@ -35,9 +34,7 @@
   "homepage": "https://github.com/freddiefujiwara/dtgwt#readme",
   "devDependencies": {
     "jest": "^27.5.1",
-    "jsdoc-to-markdown": "^7.1.1",
-    "webpack": "^5.68.0",
-    "webpack-cli": "^4.9.2"
+    "jsdoc-to-markdown": "^7.1.1"
   },
   "dependencies": {
     "markdown": "^0.5.0",
