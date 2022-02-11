@@ -1,21 +1,21 @@
 <h1>Playground</h1>
 <h2>Decision Table (format should be <a href="https://www.markdownguide.org/" target="_blank">Markdown</a>)</h2>
 <textarea id="inputscript" style="margin: 0px; width: 100%; height: 700px;">
-|             |                            |             |             |             |             |             |             |             |             |             |             |
-|-------------|----------------------------|-------------|-------------|-------------|-------------|-------------|-------------|-------------|-------------|-------------|-------------|
-|Condition    |                            |             |             |             |             |             |             |             |             |             |             |
-|             |Initial input is "0"        |Y            |Y            |             |             |             |             |             |             |Y            |Y            |
-|             |Initial input is "1"        |             |             |Y            |Y            |             |             |             |             |             |             |
-|             |Initial input is "254"      |             |             |             |             |Y            |Y            |             |             |             |             |
-|             |Initial input is "255"      |             |             |             |             |             |             |Y            |Y            |             |             |
-|Action       |                            |             |             |             |             |             |             |             |             |             |             |
-|             |Click "+"                   |Y            |             |Y            |             |Y            |             |Y            |             |             |             |
-|             |Click "-"                   |             |Y            |             |Y            |             |Y            |             |Y            |             |             |
-|             |Modify Initial input to "AB"|             |             |             |             |             |             |             |             |Y            |             |
-|             |Modify Initial input to "1%"|             |             |             |             |             |             |             |             |             |Y            |
-|Result       |                            |             |             |             |             |             |             |             |             |             |             |
-|             |Input                       |1            |0            |2            |1            |255          |253          |255          |254          |0            |0            |
-|             |Error Message               |N/A          |N/A          |N/A          |N/A          |N/A          |N/A          |N/A          |N/A          |Invalid Input|Invalid Input|
+|           |                              |     |     |     |     |     |     |     |     |               |               |
+| --------- | ---------------------------- | --- | --- | --- | --- | --- | --- | --- | --- | ------------- | ------------- |
+| Condition |                              |     |     |     |     |     |     |     |     |               |               |
+|           | Initial input is "0"         | Y   | Y   |     |     |     |     |     |     | Y             | Y             |
+|           | Initial input is "1"         |     |     | Y   | Y   |     |     |     |     |               |               |
+|           | Initial input is "254"       |     |     |     |     | Y   | Y   |     |     |               |               |
+|           | Initial input is "255"       |     |     |     |     |     |     | Y   | Y   |               |               |
+| Action    |                              |     |     |     |     |     |     |     |     |               |               |
+|           | Click "+"                    | Y   |     | Y   |     | Y   |     | Y   |     |               |               |
+|           | Click "-"                    |     | Y   |     | Y   |     | Y   |     | Y   |               |               |
+|           | Modify Initial input to "AB" |     |     |     |     |     |     |     |     | Y             |               |
+|           | Modify Initial input to "1%" |     |     |     |     |     |     |     |     |               | Y             |
+| Result    |                              |     |     |     |     |     |     |     |     |               |               |
+|           | Input                        | 1   | 0   | 2   | 1   | 255 | 253 | 255 | 254 | 0             | 0             |
+|           | Error Message                | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A | Invalid Input | Invalid Input |
 </textarea>
 <p style="margin: 0px; width: 100%; height: 100%;">
    <button id="render" style="margin: 0px; width: 80%; height: 100%;">GO</button>
