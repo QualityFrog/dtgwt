@@ -148,16 +148,16 @@ describe('Dtgwt', () => {
     expect(output).toStrictEqual(
       ['|Scenario No|Test conditions|Step description|Step expected result|',
        '|---|---|---|---|',
-       '|1|Given Initial input is "0"|When Click "+"|Then Input:1 and <br />Error Message:N/A|',
-       '|2|Given Initial input is "0"|When Click "-"|Then Input:0 and <br />Error Message:N/A|',
-       '|3|Given Initial input is "1"|When Click "+"|Then Input:2 and <br />Error Message:N/A|',
-       '|4|Given Initial input is "1"|When Click "-"|Then Input:1 and <br />Error Message:N/A|',
-       '|5|Given Initial input is "254"|When Click "+"|Then Input:255 and <br />Error Message:N/A|',
-       '|6|Given Initial input is "254"|When Click "-"|Then Input:253 and <br />Error Message:N/A|',
-       '|7|Given Initial input is "255"|When Click "+"|Then Input:255 and <br />Error Message:N/A|',
-       '|8|Given Initial input is "255"|When Click "-"|Then Input:254 and <br />Error Message:N/A|',
-       '|9|Given Initial input is "0"|When Modify Initial input to "AB"|Then Input:0 and <br />Error Message:Invalid Input|',
-       '|10|Given Initial input is "0"|When Modify Initial input to "1%"|Then Input:0 and <br />Error Message:Invalid Input|']
+       '|1|Given Initial input is "0"|When Click "+"|Then Input:1 and Error Message:N/A|',
+       '|2|Given Initial input is "0"|When Click "-"|Then Input:0 and Error Message:N/A|',
+       '|3|Given Initial input is "1"|When Click "+"|Then Input:2 and Error Message:N/A|',
+       '|4|Given Initial input is "1"|When Click "-"|Then Input:1 and Error Message:N/A|',
+       '|5|Given Initial input is "254"|When Click "+"|Then Input:255 and Error Message:N/A|',
+       '|6|Given Initial input is "254"|When Click "-"|Then Input:253 and Error Message:N/A|',
+       '|7|Given Initial input is "255"|When Click "+"|Then Input:255 and Error Message:N/A|',
+       '|8|Given Initial input is "255"|When Click "-"|Then Input:254 and Error Message:N/A|',
+       '|9|Given Initial input is "0"|When Modify Initial input to "AB"|Then Input:0 and Error Message:Invalid Input|',
+       '|10|Given Initial input is "0"|When Modify Initial input to "1%"|Then Input:0 and Error Message:Invalid Input|']
       );
     d.initialize();
     while(output.length > 0) {
