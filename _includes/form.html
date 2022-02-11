@@ -33,13 +33,22 @@
 <script type="text/javascript">
    //<![CDATA[
 $("#plus").click(() => {
+  $("#error").text("");
   const number = parseInt($("#number").val());
   $("#number").val(number + 1 > 255 ? 255 : number + 1)
 });
 $("#minus").click(() => {
+   $("#error").text("");
   const number = parseInt($("#number").val());
   $("#number").val(number - 1 < 0 ? 0 : number - 1)
 });
+$("#number").change(() => {
+  if ($("#number").val().match(/^\d+$/)) {
+    $("#error").text("");
+    return;
+  }
+  $("#error").text("Invalid Input");
+})
 $("#render").click(() => {
     const inputscript = $("#inputscript").val();
     // url change
