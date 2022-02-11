@@ -1,0 +1,92 @@
+<h1>Playground</h1>
+<h2>Decision Tree (format should be <a href="https://yaml.org/spec/" target="_blank">yaml</a>)</h2>
+<textarea id="inputscript" style="margin: 0px; width: 100%; height: 700px;">
+|             |                            |             |             |             |             |             |             |             |             |             |             |
+|-------------|----------------------------|-------------|-------------|-------------|-------------|-------------|-------------|-------------|-------------|-------------|-------------|
+|Condition    |                            |             |             |             |             |             |             |             |             |             |             |
+|             |Initial input is "0"        |Y            |Y            |             |             |             |             |             |             |Y            |Y            |
+|             |Initial input is "1"        |             |             |Y            |Y            |             |             |             |             |             |             |
+|             |Initial input is "254"      |             |             |             |             |Y            |Y            |             |             |             |             |
+|             |Initial input is "255"      |             |             |             |             |             |             |Y            |Y            |             |             |
+|Action       |                            |             |             |             |             |             |             |             |             |             |             |
+|             |Click "+"                   |Y            |             |Y            |             |Y            |             |Y            |             |             |             |
+|             |Click "-"                   |             |Y            |             |Y            |             |Y            |             |Y            |             |             |
+|             |Modify Initial input to "AB"|             |             |             |             |             |             |             |             |Y            |             |
+|             |Modify Initial input to "1%"|             |             |             |             |             |             |             |             |             |Y            |
+|Result       |                            |             |             |             |             |             |             |             |             |             |             |
+|             |Input                       |1            |0            |2            |1            |255          |253          |255          |254          |0            |0            |
+|             |Error Message               |N/A          |N/A          |N/A          |N/A          |N/A          |N/A          |N/A          |N/A          |Invalid Input|Invalid Input|
+</textarea>
+<p style="margin: 0px; width: 100%; height: 100%;">
+   <button id="render" style="margin: 0px; width: 80%; height: 100%;">GO</button>
+</p>
+<h2>Decision Table</h2>
+<div id="table" style="margin: 0px; width: 100%; height: 100%;"></div>
+<h2>Scenarios</h2>
+<div id="cases" style="margin: 0px; width: 100%; height: 100%;"></div>
+<script src="/dtgwt/src/dtgwt.js"></script>
+<script src="/dtgwt/src/markdown.min.js"></script>
+<script src="https://code.jquery.com/jquery-git.min.js"></script>
+<script type="text/javascript">
+   //<![CDATA[
+$("#render").click(() => {
+    const inputscript = $("#inputscript").val();
+    // url change
+
+    if (!(queries["g"] && queries["g"].length > 0)) {
+        window.history.pushState("", "", "/dtgwt/?i=" + encodeURIComponent(inputscript) + "#inputscript");
+    }
+    const d = new Dtdt(yaml);
+    d.setContents(inputscript)
+        .initialize();
+
+    let output = new Array();
+    const log = console.log;
+    console.log = function(line) {
+        output.push(line);
+    };
+
+    $("#table").html(markdown.markdown.toHTML(inputscript, "Maruku"));
+
+    output = new Array();
+    d.print();
+    $("#cases").html(markdown.markdown.toHTML(output.join("\n"), "Maruku"));
+    console.log = log;
+
+});
+
+// for default inputscript
+// ex) https://freddiefujiwara.github.io/dtdt/i=[url encoded inputscript]
+let queries = {};
+document.location.search.substr(1).split('&').forEach((q) => {
+    const i = q.split('=');
+    if (i.length > 1) {
+        queries[i[0].toString()] = decodeURIComponent(i[1].toString());
+    }
+});
+if (queries["i"] && queries["i"].length > 0) {
+    $("#inputscript").val(queries["i"]);
+}
+if (queries["g"] && queries["g"].length > 0) {
+    $.ajax({
+        url: 'https://api.github.com/gists/' + queries["g"],
+        type: 'GET',
+        dataType: 'jsonp'
+    }).then((gistdata) => {
+        $("#inputscript").val(gistdata.data.files[Object.keys(gistdata.data.files)[0]].content);
+    }, (e) => {
+        console.err(e);
+    });
+}
+   //]]>
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-177939223-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-177939223-1');
+</script>
+<script data-ad-client="ca-pub-7418307857966312" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
