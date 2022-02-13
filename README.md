@@ -1,5 +1,19 @@
 # dtgwt
 Simple Decision Table to "Given" , "When" and "Then"
+# How to use
++ Step 1. Download [sample_dt.xlsx](https://github.com/freddiefujiwara/dtgwt/blob/main/sample_dt.xlsx?raw=true)
++ Step 2. Modify as you like
++ Step 3. Go to [Table to Markdown](https://tabletomarkdown.com/convert-spreadsheet-to-markdown/)
++ Step 4. Copy Step 2 to "Paste Table Here!" (Please don't forget about FIRST LINE)
++ Step 5. Click "Convert M↓"
++ Step 6. Click "Copy"
++ Step 8. Go to [Dtgwt page](https://freddiefujiwara.com/dtgwt/#inputscript)
++ Step 9. Copy Step 6 to the <textarea>
++ Step 10. Click "Scenario output"
++ Step 11. Copy "Output Scenarios" as you like
+
+![ezgif.com-gif-maker.gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/1817/a434ecca-8843-6e63-069a-99260d772b06.gif)
+ 
 # Background
 ## Example App
 Now, suppose you have a simple app with one form and two buttons.
@@ -63,8 +77,9 @@ I have created a simple web application to solve the above problem.
 
 ![ezgif.com-gif-maker (2).gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/1817/83740374-2f20-a984-f193-40164c090c3d.gif)
 
-The input is also in markdown, which is really not very user-friendly (lol).
- I'll make a tool that converts xlsx to markdown to solve this problem later on.
+~~The input is also in markdown, which is really not very user-friendly (lol).~~
+~~I'll make a tool that converts xlsx to markdown to solve this problem later on.~~
+(Solved 2022 Feb 13th have a look [here](#how-to-use))
  
  You can find the [source code](https://github.com/freddiefujiwara/dtgwt) here
 The demo application is
