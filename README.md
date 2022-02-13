@@ -8,7 +8,7 @@ Simple Decision Table to "Given" , "When" and "Then"
 + Step 5. Click "Convert M↓"
 + Step 6. Click "Copy"
 + Step 8. Go to [Dtgwt page](https://freddiefujiwara.com/dtgwt/#inputscript)
-+ Step 9. Copy Step 6 to the <textarea>
++ Step 9. Copy Step 6 to the "textarea"
 + Step 10. Click "Scenario output"
 + Step 11. Copy "Output Scenarios" as you like
 
