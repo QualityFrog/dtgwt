@@ -6,6 +6,12 @@ describe('Dtgwt', () => {
     const d = new Dtgwt();
     expect(d).not.toBeNull();
     expect(d).toBeInstanceOf(Dtgwt);
+    expect(d.contents).toBe("");
+    expect(d.parsedContents).toStrictEqual({
+      "given": [],
+      "when": [],
+      "then": []
+    });
   });
   it(' setContents(contents) : can read all strings from contents', () => {
     const d = new Dtgwt();
@@ -26,7 +32,6 @@ describe('Dtgwt', () => {
   });
   it(' parse() : can parse the contents', () => {
     const d = new Dtgwt();
-    d.initialize();
     d.setContents(fs.readFileSync('__tests__/sample_dt.md','utf8'));
     expect(d.parse).toBeInstanceOf(Function);
     expect(d.parse()).toBeInstanceOf(Dtgwt);
@@ -135,7 +140,6 @@ describe('Dtgwt', () => {
   });
   it(' print() : can parse the contents', () => {
     const d = new Dtgwt();
-    d.initialize();
     d.setContents(fs.readFileSync('__tests__/sample_dt.md','utf8'));
     d.parse();
     expect(d.print).toBeInstanceOf(Function);

@@ -2,23 +2,27 @@
  * @classdesc
  * This is a Dtgwt class.
  * Simple Decision Table to "Given" , "When" and "Then"
- * Overall flow is the following
- * - setContents(contents)
- * - initialize()
- * - printTable()
+ * @class
  *
+ * @example
+ * const dtgwt = new Dtgwt();
+ * dtgwt.setContents();
+ * dtgwt.setContents(require('fs').readFileSync('FILENAME','utf8'));
+ * dtgwt.parse();
+ * dtgwt.print();
  */
 class Dtgwt {
   /**
    * @constructor
    * @desc
-   * this._clean()
+   * this.initialize();
    */
   constructor(){
+    this.initialize();
   }
   /**
    * store content from arguments
-   * @param {string} contents Target Table
+   * @param {string} contents Target Table(Should be markdown string)
    * @returns {Dtgwt} this This object
    * @desc
    * fill this.contents from outside of this instance
@@ -31,7 +35,7 @@ class Dtgwt {
    * initialize
    * @returns {Dtgwt} this This object
    * @desc
-   * initialize this.contents
+   * initialize this.contents and this.parsedContents
    */
   initialize(){
     this.contents = "";
@@ -64,11 +68,11 @@ class Dtgwt {
       }
       // ignore headers
       if(!headerParsed || !thParsed){
-        if(!headerParsed && line.match(/^\|/)){
+        if(!headerParsed && line.match(/^\s*\|/)){
           headerParsed = true;
           return;
         }
-        if(headerParsed && line.match(/^\|-/)){
+        if(headerParsed && line.match(/^\s*\|\s*-/)){
           thParsed = true;
           return;
         }
@@ -81,7 +85,7 @@ class Dtgwt {
       for(let i = 0 ; i < parsingTypes.length ; i++ ){
         const parsingType = parsingTypes[i];
         if(!parsing[parsingType["type"]]){
-          if(line.match(new RegExp(`^\\|${parsingType["regex"]}`))){
+          if(line.match(new RegExp(`^\\s*\\|\\s*${parsingType["regex"]}`))){
             parsing[parsingType["type"]] = true;
             Object.keys(parsing).map(type => {
               if(type != parsingType["type"]){
@@ -112,6 +116,7 @@ class Dtgwt {
    * print this.parsedContents
    * to console
    * @example
+   * dtgwt.print();
    */
   print(){
     console.log(`|Scenario No|Test conditions|Step description|Step expected result|`);
