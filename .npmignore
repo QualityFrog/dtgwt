@@ -5,3 +5,4 @@ _includes/
 jsdoc.conf.json
 __tests__/
 dist/
+sample_dt.xlsx
