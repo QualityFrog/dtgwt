@@ -1,3 +1,4 @@
+[![Node.js CI](https://github.com/freddiefujiwara/dtgwt/actions/workflows/node.js.yml/badge.svg)](https://github.com/freddiefujiwara/dtgwt/actions/workflows/node.js.yml)
 # dtgwt
 Simple Decision Table to "Given" , "When" and "Then"
 # How to use
