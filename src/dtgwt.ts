@@ -12,6 +12,9 @@
  * dtgwt.generateResults();
  */
 class Dtgwt {
+  contents: string;
+  parsedContents: { given: any[]; when: any[]; then: any[]; };
+  results: string[];
   /**
    * @constructor
    * @desc
@@ -156,27 +159,27 @@ class Dtgwt {
 
     const numberOfScenarios = this.parsedContents["given"][0].length - 1;
     for (let s = 1; s <= numberOfScenarios; s++) {
-      const givens = [];
+      const givens: string[] = [];
       this.parsedContents["given"].forEach(
-        function (g, i) {
+        function (g: string[], i: any) {
           const given = g[0];
           if (g[s].match(/^y$/i)) {
             givens.push(`${given}`);
           }
         }.bind(this)
       );
-      const whens = [];
+      const whens: string[] = [];
       this.parsedContents["when"].forEach(
-        function (w, i) {
+        function (w: string[], i: any) {
           const when = w[0];
           if (w[s].match(/^y$/i)) {
             whens.push(`${when}`);
           }
         }.bind(this)
       );
-      const thens = [];
+      const thens: string[] = [];
       this.parsedContents["then"].forEach(
-        function (t, i) {
+        function (t: any[], i: any) {
           const then = t[0];
           thens.push(`${then}:${t[s]}`);
         }.bind(this)
@@ -191,8 +194,10 @@ class Dtgwt {
   }
 }
 
+/* 
 if (typeof module !== "undefined" && typeof module.exports !== "undefined") {
   module.exports = Dtgwt;
 } else {
   window.Dtgwt = Dtgwt;
-}
+} 
+*/
