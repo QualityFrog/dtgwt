@@ -138,18 +138,13 @@ describe('Dtgwt', () => {
       ]
     });
   });
-  it(' print() : can parse the contents', () => {
+  it(' generateResults() : can parse the contents', () => {
     const d = new Dtgwt();
     d.setContents(fs.readFileSync('__tests__/sample_dt.md','utf8'));
     d.parse();
-    expect(d.print).toBeInstanceOf(Function);
-    const output = [];
-    const log = console.log;
-    console.log = function(line){
-      output.push(line);
-    };
-    d.print();
-    expect(output).toStrictEqual(
+    expect(d.generateResults).toBeInstanceOf(Function);
+    d.generateResults();
+    expect(d.results).toStrictEqual(
       ['|Scenario No|Test conditions|Step description|Step expected result|',
        '|---|---|---|---|',
        '|1|Given Initial input is "0"|When Click "+"|Then Input:1 and Error Message:N/A|',
@@ -164,11 +159,10 @@ describe('Dtgwt', () => {
        '|10|Given Initial input is "0"|When Modify Initial input to "1%"|Then Input:0 and Error Message:Invalid Input|']
       );
     d.initialize();
-    while(output.length > 0) {
-        output.pop();
-    }
-    d.print();
-    expect(output).toStrictEqual(
+
+    d.generateResults();
+
+    expect(d.results).toStrictEqual(
       ['|Scenario No|Test conditions|Step description|Step expected result|',
        '|---|---|---|---|',
        '|No "givens" are properly provided||||']
